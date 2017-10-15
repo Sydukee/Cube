@@ -6,27 +6,41 @@ public class Person : MonoBehaviour {
 
     private string[] identity;
     private bool isAlive;
-    private float moveSpeed = 1.0f;
-    private CharacterController cc;
+
+
+
+    public bool doorDirection = true;
 
 	// Use this for initialization
 	void Start () {
-        cc = this.GetComponent<CharacterController>();
+ 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
-	}
-
-    public void Move()
-    {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-
-        cc.Move(new Vector3(x, 0, y)*moveSpeed);
+       
+        
     }
 
+    
+
+   
+    public void OnTriggerStay(Collider other)
+    {
+        
+        if(other.tag == Tags.door1&&Input.GetKeyDown(KeyCode.F))
+        {
+            other.gameObject.GetComponentInParent<Door>().ChangeDoorState();
+            doorDirection = true;
+         
+        }
+        if (other.tag == Tags.door2 && Input.GetKeyDown(KeyCode.F))
+        {
+            other.gameObject.GetComponentInParent<Door>().ChangeDoorState();
+            doorDirection = false;
+
+        }
+    }
 
 
     public bool getIsAlive()
@@ -37,12 +51,5 @@ public class Person : MonoBehaviour {
     {
         this.isAlive = isAlive;
     }
-    public float getMoveSpeed()
-    {
-        return moveSpeed;
-    }
-    public void setMoveSpeed(float moveSpeed)
-    {
-        this.moveSpeed = moveSpeed;
-    }
+
 }
