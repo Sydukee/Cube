@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour {
 
     private Transform m_transform, m_camera;//人物自己以及相机的对象
     private CharacterController controller;//Charactor Controller组件
+    private Animator anim;
     public float MoveSpeed = 20.0f;//移动的速度
                                    // Use this for initialization
     void Start()
@@ -46,11 +47,11 @@ public class PlayerMove : MonoBehaviour {
         //else
         //静止状态
         // transform.GetComponent().SetFloat("speed", "stand");
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Translate(Vector3.up * Time.deltaTime * MoveSpeed);
-        }
-        if (!controller.isGrounded)
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+           // transform.Translate(Vector3.up * Time.deltaTime * MoveSpeed);
+        //}
+         if(!controller.isGrounded)
         {
             //模拟简单重力，每秒下降10米，当然你也可以写成抛物线
             controller.Move(new Vector3(0, -10f * Time.deltaTime, 0));
