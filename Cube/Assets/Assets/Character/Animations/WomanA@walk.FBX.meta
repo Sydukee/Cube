@@ -117,7 +117,7 @@ ModelImporter:
     400108: WomanA Z_r01
     400110: WomanA Z_r02
     400112: //RootNode
-    7400000: WomanA@walk
+    7400000: walk
     9500000: //RootNode
     11100000: //RootNode
   materials:
@@ -133,7 +133,11 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'WomanA@walk' has import animation warnings that
+      might lower retargeting quality:\n\t'WomanA Spine3' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'WomanA L Thigh' has translation
+      animation that will be discarded.\n\t'WomanA R Thigh' has translation animation
+      that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -142,7 +146,212 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 2
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: WomanA@walk
+      firstFrame: 0
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: WomanA Bip01
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA L Thigh
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA L Thigh/WomanA L Calf
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA L Thigh/WomanA L Calf/WomanA
+          L Foot
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA L Thigh/WomanA L Calf/WomanA
+          L Foot/WomanA L Toe0
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA L Thigh/WomanA L Calf/WomanA
+          L Foot/WomanA L Toe0/WomanA L Toe0Nub
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA R Thigh
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA R Thigh/WomanA R Calf
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA R Thigh/WomanA R Calf/WomanA
+          R Foot
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA R Thigh/WomanA R Calf/WomanA
+          R Foot/WomanA R Toe0
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA R Thigh/WomanA R Calf/WomanA
+          R Foot/WomanA R Toe0/WomanA R Toe0Nub
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA HeadNub
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk chin
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk chin/WomanA talk lower lip01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk chin/WomanA talk lower lip01/WomanA
+          talk lower lip02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk mouth l01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk mouth l01/WomanA talk mouth l02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk mouth r01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk mouth r01/WomanA talk mouth r02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk upper lip01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA talk upper lip01/WomanA talk upper
+          lip02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA X_l01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA X_l01/WomanA X_l02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA X_r01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA X_r01/WomanA X_r02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA Z_l01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA Z_l01/WomanA Z_l02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA Z_r01
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA Head/WomanA Z_r01/WomanA Z_r02
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm/WomanA
+          L Hand
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm/WomanA
+          L Hand/WomanA L Finger0
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm/WomanA
+          L Hand/WomanA L Finger0/WomanA L Finger01
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm/WomanA
+          L Hand/WomanA L Finger0/WomanA L Finger01/WomanA L Finger0Nub
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm/WomanA
+          L Hand/WomanA L Finger1
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm/WomanA
+          L Hand/WomanA L Finger1/WomanA L Finger11
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA L Clavicle/WomanA L UpperArm/WomanA L Forearm/WomanA
+          L Hand/WomanA L Finger1/WomanA L Finger11/WomanA L Finger1Nub
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm/WomanA
+          R Hand
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm/WomanA
+          R Hand/WomanA R Finger0
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm/WomanA
+          R Hand/WomanA R Finger0/WomanA R Finger01
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm/WomanA
+          R Hand/WomanA R Finger0/WomanA R Finger01/WomanA R Finger0Nub
+        weight: 0
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm/WomanA
+          R Hand/WomanA R Finger1
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm/WomanA
+          R Hand/WomanA R Finger1/WomanA R Finger11
+        weight: 1
+      - path: WomanA Bip01/WomanA Pelvis/WomanA Spine/WomanA Spine1/WomanA Spine2/WomanA
+          Spine3/WomanA Neck/WomanA R Clavicle/WomanA R UpperArm/WomanA R Forearm/WomanA
+          R Hand/WomanA R Finger1/WomanA R Finger11/WomanA R Finger1Nub
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

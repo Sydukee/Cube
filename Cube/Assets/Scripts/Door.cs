@@ -8,6 +8,7 @@ public class Door : MonoBehaviour {
     private string openDoor = "OpenDoor";
     private string closeDoor = "CloseDoor";
     private bool isDoorOpen = false;
+    private string tag;
 
     public GameObject Person;
 
@@ -15,6 +16,7 @@ public class Door : MonoBehaviour {
 	void Start () {
         anim = this.GetComponent<Animator>();
         Person = GameObject.FindGameObjectWithTag("Player");
+        tag = this.gameObject.tag;
 	}
 	
 	
@@ -28,18 +30,24 @@ public class Door : MonoBehaviour {
             }
             else
             {
-                CloseDoor();
+                
+                    CloseDoor();
+           
             }
         }
         if (Person.GetComponent<Person>().doorDirection == false)
         {
             if (!isDoorOpen)
             {
-                OpenDoor2();
+             
+                    OpenDoor2();
+          
             }
             else
             {
-                CloseDoor2();
+   
+                    CloseDoor2();
+      
             }
         }
     }
@@ -62,6 +70,26 @@ public class Door : MonoBehaviour {
     public void CloseDoor2()
     {
         anim.SetTrigger("CloseDoor2");
+        isDoorOpen = false;
+    }
+    public void OpenDoor3()
+    {
+        anim.SetTrigger("OpenDoor3");
+        isDoorOpen = true;
+    }
+    public void CloseDoor3()
+    {
+        anim.SetTrigger("CloseDoor3");
+        isDoorOpen = false;
+    }
+    public void OpenDoor4()
+    {
+        anim.SetTrigger("OpenDoor4");
+        isDoorOpen = true;
+    }
+    public void CloseDoor4()
+    {
+        anim.SetTrigger("CloseDoor4");
         isDoorOpen = false;
     }
 }

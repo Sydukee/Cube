@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Person.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Tags.cs" />
+    <Compile Include="Assets\Scripts\Trap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Character\info.txt" />

@@ -70,6 +70,21 @@ public class Person : MonoBehaviour {
 
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals(Tags.trap))
+        {
+            other.gameObject.GetComponent<Trap>().Trap_Start();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals(Tags.trap))
+        {
+            other.gameObject.GetComponent<Trap>().Trap_Stop();
+        }
+    }
     public void Climb()
     {
         this.gameObject.GetComponent<PlayerMove>().enabled = false;

@@ -14,12 +14,14 @@ public class PlayerMove : MonoBehaviour {
         m_transform = this.transform;//尽量不要再update里获取this.transform，而是这样保存起来，这样能节约性能
         m_camera = GameObject.FindGameObjectWithTag("MainCamera").transform;//
         controller = this.GetComponent<CharacterController>();
+        anim = this.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
     {
         if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
         {
+            anim.SetBool("walk", true);
             // transform.GetComponent().SetFloat("speed", "run");//将人物的动画改为移动状态，这里有个问题，就是动画组件的获取也要在update里获取，请读者自行修改吧
             if (Input.GetKey(KeyCode.W))
             {
@@ -44,7 +46,7 @@ public class PlayerMove : MonoBehaviour {
 
             controller.Move(m_transform.forward * Time.deltaTime * MoveSpeed);
         }
-        //else
+        else anim.SetBool("walk", false);
         //静止状态
         // transform.GetComponent().SetFloat("speed", "stand");
         //if (Input.GetKey(KeyCode.Q))
