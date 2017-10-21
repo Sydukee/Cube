@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Door : MonoBehaviour {
+public class Door : NetworkBehaviour {
 
     private Animator anim;
     private string openDoor = "OpenDoor";
@@ -11,11 +12,23 @@ public class Door : MonoBehaviour {
     private string tag;
 
     public GameObject Person;
+    public GameObject[] Players;
 
-	
-	void Start () {
+
+    private void Update()
+    {
+        Players = GameObject.FindGameObjectsWithTag(Tags.person);
+        foreach (GameObject p in Players)
+        {
+            if (p.GetComponent<NetworkIdentity>().isLocalPlayer)
+            {
+                Person = p;
+            }
+        }
+    }
+    void Start () {
         anim = this.GetComponent<Animator>();
-        Person = GameObject.FindGameObjectWithTag("Player");
+        Person = GameObject.FindGameObjectWithTag(Tags.person);
         tag = this.gameObject.tag;
 	}
 	
@@ -24,7 +37,14 @@ public class Door : MonoBehaviour {
     {
         if (Person.GetComponent<Person>().doorDirection == true)
         {
-            if (!isDoorOpen)
+            switch (isDoorOpen)
+            {
+                case true: CloseDoor();
+                    break;
+                case false: OpenDoor();
+                    break;
+            }
+            /*if (!isDoorOpen)
             {
                 OpenDoor();
             }
@@ -33,9 +53,9 @@ public class Door : MonoBehaviour {
                 
                     CloseDoor();
            
-            }
+            }*/
         }
-        if (Person.GetComponent<Person>().doorDirection == false)
+        else if (Person.GetComponent<Person>().doorDirection == false)
         {
             if (!isDoorOpen)
             {
@@ -72,24 +92,5 @@ public class Door : MonoBehaviour {
         anim.SetTrigger("CloseDoor2");
         isDoorOpen = false;
     }
-    public void OpenDoor3()
-    {
-        anim.SetTrigger("OpenDoor3");
-        isDoorOpen = true;
-    }
-    public void CloseDoor3()
-    {
-        anim.SetTrigger("CloseDoor3");
-        isDoorOpen = false;
-    }
-    public void OpenDoor4()
-    {
-        anim.SetTrigger("OpenDoor4");
-        isDoorOpen = true;
-    }
-    public void CloseDoor4()
-    {
-        anim.SetTrigger("CloseDoor4");
-        isDoorOpen = false;
-    }
+    
 }

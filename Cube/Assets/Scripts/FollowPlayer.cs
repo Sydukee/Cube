@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class FollowPlayer : MonoBehaviour {
+public class FollowPlayer : NetworkBehaviour {
+
+    public GameObject[] Players;
 
     public Transform pivot; // the object being followed
     public Vector3 pivotOffset = Vector3.zero; // offset from target's pivot
@@ -34,6 +37,8 @@ public class FollowPlayer : MonoBehaviour {
 
     void Start()
     {
+
+        
         
         var angles = transform.eulerAngles;
         targetX = x = angles.x;
@@ -43,6 +48,14 @@ public class FollowPlayer : MonoBehaviour {
 
     void LateUpdate()
     {
+        Players = GameObject.FindGameObjectsWithTag(Tags.person);
+        foreach (GameObject p in Players)
+        {
+            if (p.GetComponent<NetworkIdentity>().isLocalPlayer)
+            {
+                pivot = p.transform;
+            }
+        }
         if (pivot)
         {
             float scroll = Input.GetAxis("Mouse ScrollWheel");

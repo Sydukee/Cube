@@ -1,27 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMove : MonoBehaviour {
+public class PlayerMove : NetworkBehaviour {
 
     private Transform m_transform, m_camera;//人物自己以及相机的对象
     private CharacterController controller;//Charactor Controller组件
-    private Animator anim;
+    public  Animator anim;
     public float MoveSpeed = 20.0f;//移动的速度
                                    // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animator>();
+
+        if (isLocalPlayer == false)
+        {
+            return;
+        }
         m_transform = this.transform;//尽量不要再update里获取this.transform，而是这样保存起来，这样能节约性能
         m_camera = GameObject.FindGameObjectWithTag("MainCamera").transform;//
         controller = this.GetComponent<CharacterController>();
-        anim = this.GetComponent<Animator>();
+        
     }
     // Update is called once per frame
     void Update()
     {
+
+       Move();       
+
+    }
+    
+    private void Move()
+    {
+        if (isLocalPlayer == false)
+        {
+            return;
+        }
         if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
         {
-            anim.SetBool("walk", true);
+            CmdChangeAnimator(0);
             // transform.GetComponent().SetFloat("speed", "run");//将人物的动画改为移动状态，这里有个问题，就是动画组件的获取也要在update里获取，请读者自行修改吧
             if (Input.GetKey(KeyCode.W))
             {
@@ -46,23 +64,42 @@ public class PlayerMove : MonoBehaviour {
 
             controller.Move(m_transform.forward * Time.deltaTime * MoveSpeed);
         }
-        else anim.SetBool("walk", false);
+        else CmdChangeAnimator(1);
         //静止状态
         // transform.GetComponent().SetFloat("speed", "stand");
         //if (Input.GetKey(KeyCode.Q))
         //{
-           // transform.Translate(Vector3.up * Time.deltaTime * MoveSpeed);
+        // transform.Translate(Vector3.up * Time.deltaTime * MoveSpeed);
         //}
-         if(!controller.isGrounded)
+        if (!controller.isGrounded)
         {
             //模拟简单重力，每秒下降10米，当然你也可以写成抛物线
             controller.Move(new Vector3(0, -10f * Time.deltaTime, 0));
         }
 
+    }
+    [Command]
+    private void CmdChangeAnimator(int i)
+    {
+        if (i == 0)
+        {
+            anim.SetBool("walk", true);
+            RpcChangeAnimator(0);
+        }
 
-
-
-
+        if (i == 1) 
+        {
+            anim.SetBool("walk", false);
+            RpcChangeAnimator(1);
+        }
+        
+    }
+    [ClientRpc]
+    private void RpcChangeAnimator(int i)
+    {
+        
+        if (i == 0) anim.SetBool("walk", true);
+        if (i == 1) anim.SetBool("walk", false);
     }
 }
 

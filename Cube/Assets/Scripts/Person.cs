@@ -41,13 +41,13 @@ public class Person : MonoBehaviour {
     public void OnTriggerStay(Collider other)
     {
         
-        if(other.tag == Tags.door1&&Input.GetKeyDown(KeyCode.F))
+        if(other.tag == Tags.door1&&Input.GetKeyDown(KeyCode.E))
         {
             other.gameObject.GetComponentInParent<Door>().ChangeDoorState();
             doorDirection = true;
          
         }
-        if (other.tag == Tags.door2 && Input.GetKeyDown(KeyCode.F))
+        if (other.tag == Tags.door2 && Input.GetKeyDown(KeyCode.E))
         {
             other.gameObject.GetComponentInParent<Door>().ChangeDoorState();
             doorDirection = false;

@@ -8,4 +8,5 @@ public class Tags : MonoBehaviour {
     public const string door2 = "Door2";
     public const string ladder = "Ladder";
     public const string trap = "Trap";
+    public const string person = "Person";
 }
