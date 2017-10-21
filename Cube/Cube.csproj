@@ -84,8 +84,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectLightsFade.cs" />
+    <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectNWayMotion.cs" />
+    <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectPlay.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\MoveLightning_Start.cs" />
+    <Compile Include="Assets\Scripts\MoveWall.cs" />
     <Compile Include="Assets\Scripts\Person.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Tags.cs" />
@@ -93,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Character\info.txt" />
+    <None Include="Assets\MagicEffectsLightningVol01\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

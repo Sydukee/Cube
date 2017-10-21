@@ -7,7 +7,7 @@ public class Door : MonoBehaviour {
     private Animator anim;
     private string openDoor = "OpenDoor";
     private string closeDoor = "CloseDoor";
-    private bool isDoorOpen = false;
+    public  bool isDoorOpen = false;
     private string tag;
 
     public GameObject Person;
