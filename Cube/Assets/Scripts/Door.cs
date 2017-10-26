@@ -30,18 +30,22 @@ public class Door : NetworkBehaviour {
         anim = this.GetComponent<Animator>();
         Person = GameObject.FindGameObjectWithTag(Tags.person);
         tag = this.gameObject.tag;
+        
 	}
 	
-	
-    public void ChangeDoorState()
+    [ClientRpc]
+    public void RpcChangeDoorState()
     {
+        print(1);
         if (Person.GetComponent<Person>().doorDirection == true)
         {
             switch (isDoorOpen)
             {
-                case true: CloseDoor();
+                case true:
+                    CloseDoor();
                     break;
-                case false: OpenDoor();
+                case false:
+                    OpenDoor();
                     break;
             }
             /*if (!isDoorOpen)
@@ -59,18 +63,19 @@ public class Door : NetworkBehaviour {
         {
             if (!isDoorOpen)
             {
-             
-                    OpenDoor2();
-          
+
+                OpenDoor2();
+
             }
             else
             {
-   
-                    CloseDoor2();
-      
+
+                CloseDoor2();
+
             }
         }
     }
+
 
     public void OpenDoor()
     {

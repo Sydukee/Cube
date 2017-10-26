@@ -97,7 +97,7 @@ public class PlayerMove : NetworkBehaviour {
     [ClientRpc]
     private void RpcChangeAnimator(int i)
     {
-        
+        anim = GetComponent<Animator>();
         if (i == 0) anim.SetBool("walk", true);
         if (i == 1) anim.SetBool("walk", false);
     }

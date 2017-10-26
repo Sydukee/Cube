@@ -87,8 +87,11 @@
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectLightsFade.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectNWayMotion.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectPlay.cs" />
+    <Compile Include="Assets\Net.cs" />
+    <Compile Include="Assets\Player_Id.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MoveLightning_Start.cs" />
     <Compile Include="Assets\Scripts\MoveWall.cs" />
     <Compile Include="Assets\Scripts\Person.cs" />

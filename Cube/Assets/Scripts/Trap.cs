@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Trap : MonoBehaviour {
+public class Trap : NetworkBehaviour {
 
     public ParticleSystem[] traps;
     public GameObject[] move_walls;
@@ -18,6 +19,10 @@ public class Trap : MonoBehaviour {
 
     public void Trap_Start()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         if (traps != null)
         {
             foreach (ParticleSystem ps in traps)
@@ -46,7 +51,7 @@ public class Trap : MonoBehaviour {
             {
                 if (d.GetComponent<Door>().isDoorOpen == true)
                 {
-                    d.GetComponent<Door>().ChangeDoorState();
+                    d.GetComponent<Door>().RpcChangeDoorState();
                     d.GetComponent<Door>().enabled = false;
                 }
             }
