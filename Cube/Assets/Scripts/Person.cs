@@ -151,4 +151,8 @@ public class Person : NetworkBehaviour {
         this.isAlive = isAlive;
     }
 
+    public void die()
+    {
+        setIsAlive(false);
+    }
 }
