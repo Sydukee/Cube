@@ -28,7 +28,7 @@ public class Police : NetworkBehaviour
         }
         if (E_Button == null)
         {
-            E_Button = GameObject.Find("PoliceButton");
+            E_Button = GameObject.Find("E_Button");
         }
         if (CdTimer == null)
         {

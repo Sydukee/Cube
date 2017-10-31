@@ -84,9 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Civilian.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectLightsFade.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectNWayMotion.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectPlay.cs" />
+    <Compile Include="Assets\MathStudent.cs" />
+    <Compile Include="Assets\PlayerIdentity.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

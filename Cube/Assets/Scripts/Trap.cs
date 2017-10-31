@@ -19,15 +19,13 @@ public class Trap : NetworkBehaviour {
 
     public void Trap_Start()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        
         if (traps != null)
         {
             foreach (ParticleSystem ps in traps)
             {
                 ps.Play();
+
             }
         }
         if (move_walls != null)
@@ -67,5 +65,12 @@ public class Trap : NetworkBehaviour {
             }
         }
 
+    }
+    private void OnParticleCollision(GameObject other)
+    {
+        if(other.tag == Tags.person)
+        {
+            SendMessage("die");
+        }
     }
 }

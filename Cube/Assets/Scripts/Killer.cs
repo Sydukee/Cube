@@ -19,6 +19,7 @@ public class Killer : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         if (KillText == null)
         {
             KillText = GameObject.Find("KillText");

@@ -11,4 +11,5 @@ public class Tags : MonoBehaviour {
     public const string trap = "Trap";
     public const string person = "Person";
     public const string room = "Room";
+    public const string ligt = "Light";
 }

@@ -154,5 +154,6 @@ public class Person : NetworkBehaviour {
     public void die()
     {
         setIsAlive(false);
+        print("die");
     }
 }
