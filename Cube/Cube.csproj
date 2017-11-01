@@ -84,27 +84,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Civilian.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectLightsFade.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectNWayMotion.cs" />
     <Compile Include="Assets\MagicEffectsLightningVol01\Scripts\EffectPlay.cs" />
-    <Compile Include="Assets\MathStudent.cs" />
-    <Compile Include="Assets\PlayerIdentity.cs" />
+    <Compile Include="Assets\Scripts\Civilian.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Idiot.cs" />
     <Compile Include="Assets\Scripts\Killer.cs" />
+    <Compile Include="Assets\Scripts\LadderType.cs" />
+    <Compile Include="Assets\Scripts\MathStudent.cs" />
     <Compile Include="Assets\Scripts\MoveLightning_Start.cs" />
     <Compile Include="Assets\Scripts\MoveWall.cs" />
     <Compile Include="Assets\Scripts\Net.cs" />
     <Compile Include="Assets\Scripts\Person.cs" />
+    <Compile Include="Assets\Scripts\PlayerIdentity.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Player_Id.cs" />
     <Compile Include="Assets\Scripts\Police.cs" />
     <Compile Include="Assets\Scripts\RoomInfo.cs" />
     <Compile Include="Assets\Scripts\Tags.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
+    <Compile Include="Assets\Trap_collision.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Character\info.txt" />

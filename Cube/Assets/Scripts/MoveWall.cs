@@ -19,7 +19,7 @@ public class MoveWall : MonoBehaviour {
 
     public void ChangeState()
     {
-        print(1);
+
        if(isUp == false)
         {
             anim.SetBool("GoUp", true);

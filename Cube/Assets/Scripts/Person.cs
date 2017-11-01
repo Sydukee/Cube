@@ -13,6 +13,7 @@ public class Person : NetworkBehaviour {
 
     public float climbSpeed = 2.0f;
     public bool doorDirection = true;
+    public short ladderT = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -30,10 +31,13 @@ public class Person : NetworkBehaviour {
             Climb();
             if (Input.GetKeyDown(KeyCode.G))
             {
+                this.GetComponent<CharacterController>().enabled = true;
                 this.gameObject.GetComponent<PlayerMove>().enabled = true;
                 Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
                 rb.useGravity = true;
+                rb.isKinematic = true;
                 isClimbing = false;
+                this.transform.position -= new Vector3(0, 0, 0.1f);
             }
             
         }
@@ -76,6 +80,7 @@ public class Person : NetworkBehaviour {
 
         if (other.tag == Tags.ladder && Input.GetKeyDown(KeyCode.F))
         {
+            ladderT = other.GetComponent<LadderType>().ladder_T;
             if(other.name == "ClimbPoint1")
             {
                 this.transform.position = other.transform.position + new Vector3(0, 0, 0.5f);
@@ -98,8 +103,17 @@ public class Person : NetworkBehaviour {
         {
             return;
         }
+        
         if (other.tag.Equals(Tags.trap))
         {
+            if (other.GetComponent<Trap>().isMoveWall)
+            {
+                GameObject[] mw = other.GetComponent<Trap>().move_walls;
+                foreach(GameObject m in mw)
+                {
+                    CmdSetMWTrigger(m);
+                }
+            }
             other.gameObject.GetComponent<Trap>().Trap_Start();
         }
     }
@@ -120,17 +134,30 @@ public class Person : NetworkBehaviour {
         {
             return;
         }
+        this.GetComponent<CharacterController>().enabled = false;
+        
         this.gameObject.GetComponent<PlayerMove>().enabled = false;
         Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();       
         rb.useGravity = false;
+        rb.isKinematic = false;
         float y = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.up * y * climbSpeed);
+        //transform.Translate(Vector3.up * y * climbSpeed);
+        rb.velocity = (Vector3.up * y * climbSpeed);
 
         Vector3 tp = transform.position;
-        if (tp.y <= climbY)
-            transform.position = new Vector3(tp.x, climbY, tp.z);
-        else if (tp.y >= climbY + 8.5f)
-            transform.position = new Vector3(tp.x, climbY + 8.5f, tp.z);
+        if (ladderT == 1)
+        {
+            if (tp.y <= climbY)
+                transform.position = new Vector3(tp.x, climbY, tp.z);
+            else if (tp.y >= climbY + 10)
+                transform.position = new Vector3(tp.x, climbY + 10, tp.z);
+        }
+        else if(ladderT == 2) {
+            if (tp.y <= climbY)
+                transform.position = new Vector3(tp.x, climbY, tp.z);
+            else if (tp.y >= climbY + 2)
+                transform.position = new Vector3(tp.x, climbY + 2, tp.z);
+        }
         
     }
 
@@ -155,5 +182,17 @@ public class Person : NetworkBehaviour {
     {
         setIsAlive(false);
         print("die");
+    }
+
+
+    [Command]
+    public void CmdSetMWTrigger(GameObject a)
+    {
+        RpcSetMWTrigger(a);
+    }
+    [ClientRpc]
+    public void RpcSetMWTrigger(GameObject a)
+    {
+        a.GetComponent<Animator>().SetTrigger("Start");
     }
 }

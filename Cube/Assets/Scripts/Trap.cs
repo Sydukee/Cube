@@ -11,15 +11,15 @@ public class Trap : NetworkBehaviour {
     public GameObject lightning;
     public bool Trap_CloseDoor = false;
     private float Timer = 0;
+    public bool isMoveWall = false;
 
     private void Update()
     {
         
     }
-
+    
     public void Trap_Start()
     {
-        
         if (traps != null)
         {
             foreach (ParticleSystem ps in traps)
@@ -66,11 +66,5 @@ public class Trap : NetworkBehaviour {
         }
 
     }
-    private void OnParticleCollision(GameObject other)
-    {
-        if(other.tag == Tags.person)
-        {
-            SendMessage("die");
-        }
-    }
+    
 }
