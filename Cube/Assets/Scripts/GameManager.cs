@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class GameManager : NetworkBehaviour {
 
@@ -22,17 +23,33 @@ public class GameManager : NetworkBehaviour {
     private float nexttime = 1;
     public int lightOffCd = 30;
 
+    public GameObject LightOffImage;
+    public GameObject LightOffText;
+
+
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+       
         players = GameObject.FindGameObjectsWithTag(Tags.person);
-        lights = GameObject.FindGameObjectsWithTag(Tags.ligt);
+        //lights = GameObject.FindGameObjectsWithTag(Tags.ligt);
         GetPlayers();
         if (gameStart)
         {
             GetPlayers_Alive();
             LightOff();
         }
-        
+        if(LightOffImage == null)
+        {
+            LightOffImage = GameObject.Find("LightOffImage");
+        }
+        if(LightOffText == null)
+        {
+            LightOffText = GameObject.Find("LightOffText");
+        }
         if(players.Length == 5)
         {
             //Start Game
@@ -68,19 +85,21 @@ public class GameManager : NetworkBehaviour {
         if (lightOffCd > 0 && lightOffCd < 20)
         {
             //lightoff
-            foreach(GameObject l in lights)
+            /*foreach(GameObject l in lights)
             {
                 l.GetComponent<Light>().enabled = false;
-            }
+            }*/
+            Light_Off();
             print("lightoff");
         }
         if(lightOffCd <= 0)
         {
             //lighton
-            foreach (GameObject l in lights)
+            /*foreach (GameObject l in lights)
             {
                 l.GetComponent<Light>().enabled = true;
-            }
+            }*/
+            Light_On();
             print("lighton");
             lightOffCd = 30;
         }
@@ -147,5 +166,19 @@ public class GameManager : NetworkBehaviour {
         MathStudent_alive = MathStudent.GetComponent<Person>().getIsAlive();
         Civilian_alive = Civilian.GetComponent<Person>().getIsAlive();
     }
+
+    public void Light_Off()
+    {
+        LightOffImage.GetComponent<Image>().enabled = true;
+        LightOffText.GetComponent<Text>().enabled = true;
+    }
+    public void Light_On()
+    {
+        LightOffImage.GetComponent<Image>().enabled = false;
+        LightOffText.GetComponent<Text>().enabled = false;
+    }
+
+
+
 
 }

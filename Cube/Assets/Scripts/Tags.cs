@@ -12,4 +12,6 @@ public class Tags : MonoBehaviour {
     public const string person = "Person";
     public const string room = "Room";
     public const string ligt = "Light";
+    public const string damage = "Damage";
+    public const string quit = "Quit";
 }

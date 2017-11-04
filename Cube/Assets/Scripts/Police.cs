@@ -65,7 +65,7 @@ public class Police : NetworkBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
 
-                    other.GetComponent<Person>().die();
+                    CmdMakeDie(other.gameObject);
                     KillCd = 300;
                 }
             
@@ -93,4 +93,16 @@ public class Police : NetworkBehaviour
 
         }
     }
+
+    [Command]
+    public void CmdMakeDie(GameObject a)
+    {
+        RpcMakeDie(a);
+    }
+    [ClientRpc]
+    public void RpcMakeDie(GameObject a)
+    {
+        a.GetComponent<Person>().die();
+    }
+
 }

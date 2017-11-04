@@ -106,7 +106,8 @@
     <Compile Include="Assets\Scripts\RoomInfo.cs" />
     <Compile Include="Assets\Scripts\Tags.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
-    <Compile Include="Assets\Trap_collision.cs" />
+    <Compile Include="Assets\Scripts\Trap_collision.cs" />
+    <Compile Include="Assets\Scripts\lobby_Manager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Assets\Character\info.txt" />

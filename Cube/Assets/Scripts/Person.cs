@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Person : NetworkBehaviour {
 
@@ -10,10 +11,15 @@ public class Person : NetworkBehaviour {
     private bool isClimbing = false;
     private float climbY;
     private bool isButtonDown = false;
+    public GameObject DieText;
+    public GameObject DieImage;
+    public GameObject OutText;
+
 
     public float climbSpeed = 2.0f;
     public bool doorDirection = true;
     public short ladderT = 0;
+    public bool isOut = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +28,21 @@ public class Person : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+      
+
+        if (DieImage == null)
+        {
+            DieImage = GameObject.Find("DieImage");
+        }
+        if(DieText == null)
+        {
+            DieText = GameObject.Find("DieText");
+        }
+        if(OutText == null)
+        {
+            OutText = GameObject.Find("OutText");
+            
+        }
         if (!isLocalPlayer)
         {
             return;
@@ -116,6 +137,18 @@ public class Person : NetworkBehaviour {
             }
             other.gameObject.GetComponent<Trap>().Trap_Start();
         }
+
+        if (other.tag.Equals(Tags.quit))
+        {
+            isOut = true;
+            OutText.GetComponent<Text>().enabled = true;
+            Destroy(this.gameObject);
+        }
+
+        if (other.tag.Equals(Tags.damage))
+        {
+            die();
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -182,8 +215,26 @@ public class Person : NetworkBehaviour {
     {
         setIsAlive(false);
         print("die");
+        DieText.GetComponent<Text>().enabled = true;
+        DieImage.GetComponent<Image>().enabled = true;
+        CmdDestroy();
+       
     }
 
+
+
+
+    [Command]
+    public void CmdDestroy()
+    {
+        RpcDestroy();
+    }
+    [Client]
+    public void RpcDestroy()
+    {
+        Destroy(this.gameObject);
+    }
+    
 
     [Command]
     public void CmdSetMWTrigger(GameObject a)

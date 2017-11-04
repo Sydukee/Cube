@@ -12,6 +12,9 @@ public class Killer : NetworkBehaviour {
     public GameObject CdTimer;
     private float KillCd = 0;
     private float nextTime = 1;
+
+    public GameObject LightOffImage;
+    public GameObject LightOffText;
     // Use this for initialization
     void Start () {
        
@@ -19,7 +22,25 @@ public class Killer : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (!PlayerNetID.isLocalPlayer)
+        {
+            return;
+        }
+
+        if (LightOffImage == null)
+        {
+            LightOffImage = GameObject.Find("LightOffImage");
+        }
+        if (LightOffText == null)
+        {
+            LightOffText = GameObject.Find("LightOffText");
+        }
+        if(LightOffImage.GetComponent<Image>().enabled == true )
+        {
+            LightOffImage.GetComponent<Image>().enabled = false;
+
+        }
+
         if (KillText == null)
         {
             KillText = GameObject.Find("KillText");
@@ -65,7 +86,7 @@ public class Killer : NetworkBehaviour {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
 
-                    other.GetComponent<Person>().die();
+                    CmdMakeDie(other.gameObject);
                     KillCd = 300;
                 }
             }
@@ -94,4 +115,16 @@ public class Killer : NetworkBehaviour {
           
         }
     }
+
+    [Command]
+    public void CmdMakeDie(GameObject a)
+    {
+        RpcMakeDie(a);
+    }
+    [ClientRpc]
+    public void RpcMakeDie(GameObject a)
+    {
+        a.GetComponent<Person>().die();
+    }
+
 }
